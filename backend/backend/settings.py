@@ -13,13 +13,17 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 import environ
+
+import dj_database_url
+
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env()
 
+is_dev = os.environ["DJANGO_ENV"] == "dev"
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -28,20 +32,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = is_dev
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_ALLOW_ALL = False
-
-CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = is_dev
 
 CORS_ALLOW_HEADERS = ["Content-Type"]
 
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+CORS_ORIGIN_WHITELIST = ["http://localhost:3000","http://127.0.0.1:3000"] if is_dev else ["https://fila-bandeco.vercel.app","https://bandeco.skyrats.com.br"]
+
+
 
 # Application definition
 
@@ -98,13 +99,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+SQL_LITE_DATABASE = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 }
 
+POSTGRESS_DATABASE = dj_database_url.config(conn_max_age=600)
+
+DATABASES = {
+    'default': SQL_LITE_DATABASE if is_dev else POSTGRESS_DATABASE
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

@@ -30,16 +30,16 @@ const Home: NextPage = () => {
     axios
       .all([
         axios.get(
-          "http://127.0.0.1:8000/api/filas/?bandeco=CENTRAL&ordering=-last_atualization"
+          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=CENTRAL&ordering=-last_atualization"
         ),
         axios.get(
-          "http://127.0.0.1:8000/api/filas/?bandeco=FÍSICA&ordering=-last_atualization"
+          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=FÍSICA&ordering=-last_atualization"
         ),
         axios.get(
-          "http://127.0.0.1:8000/api/filas/?bandeco=PREFEITURA&ordering=-last_atualization"
+          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=PREFEITURA&ordering=-last_atualization"
         ),
         axios.get(
-          "http://127.0.0.1:8000/api/filas/?bandeco=QUÍMICA&ordering=-last_atualization"
+          "http://https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=QUÍMICA&ordering=-last_atualization"
         ),
       ])
       .then(
