@@ -8,6 +8,13 @@ interface Props {
   last_atualization: string;
 }
 
+const Dict: any = {
+  "C": "Central",
+  "Q": "Química",
+  "F": "Física",
+  "P": "Prefeitura"
+}
+
 const Bandeco: React.FC<Props> = ({
   bandeco,
   situation,
@@ -25,7 +32,7 @@ const Bandeco: React.FC<Props> = ({
       </div>
 
       <div className="flex flex-row justify-between text-white bg-usp rounded-b-lg py-1 px-7 items-center">
-        <h1 className="uppercase">{bandeco}</h1>
+        <h1 className="uppercase">{Dict[bandeco]}</h1>
         <div>{dateText}</div>
       </div>
     </div>

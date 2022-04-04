@@ -30,7 +30,7 @@ const Home: NextPage = () => {
     axios
       .all([
         axios.get(
-          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=C"
+          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=CENT"
         ),
         axios.get(
           "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=F"
