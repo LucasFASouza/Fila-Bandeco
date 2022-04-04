@@ -30,16 +30,16 @@ const Home: NextPage = () => {
     axios
       .all([
         axios.get(
-          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=CENTRAL&ordering=-last_atualization"
+          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=CENTRAL"
         ),
         axios.get(
-          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=FÍSICA&ordering=-last_atualization"
+          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=FÍSICA"
         ),
         axios.get(
-          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=PREFEITURA&ordering=-last_atualization"
+          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=PREFEITURA"
         ),
         axios.get(
-          "http://https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=QUÍMICA&ordering=-last_atualization"
+          "http://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=QUÍMICA"
         ),
       ])
       .then(
@@ -50,10 +50,10 @@ const Home: NextPage = () => {
             prefAtualization,
             quimicaAtualization
           ) => {
-            atualization.push(centralAtualization.data[0]);
-            atualization.push(fisicaAtualization.data[0]);
-            atualization.push(prefAtualization.data[0]);
-            atualization.push(quimicaAtualization.data[0]);
+            atualization.push(centralAtualization.data[-1]);
+            atualization.push(fisicaAtualization.data[-1]);
+            atualization.push(prefAtualization.data[-1]);
+            atualization.push(quimicaAtualization.data[-1]);
 
             setFilas(atualization);
           }

@@ -61,8 +61,12 @@ const Submit: NextPage = () => {
     // make axios post request
     axios
       .post(
-        "http://127.0.0.1:8000/api/filas/",
-        { bandeco: bandecoSubmit.bandeco, situation: bandecoSubmit.situation, velocity: bandecoSubmit.velocity },
+        "https://fila-bandeco-api.herokuapp.com/api/filas/",
+        {
+          bandeco: bandecoSubmit.bandeco,
+          situation: bandecoSubmit.situation,
+          velocity: bandecoSubmit.velocity,
+        },
         { headers: { "Content-Type": "application/json" } }
       )
       .then((res) => console.log(res))
