@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           httpEquiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
+        <title>Bandeco</title>
       </Head>
       <Component {...pageProps} />
     </AuthProvider>
