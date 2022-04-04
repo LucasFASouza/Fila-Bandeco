@@ -4,10 +4,10 @@ from django.db import models
 
 class Fila(models.Model):
     BANDECO_CHOICES = (
-        ("CENTRAL", "CENTRAL"),
-        ("QUÍMICA", "QUÍMICA"),
-        ("FÍSICA", "FÍSICA"),
-        ("PREFEITURA", "PREFEITURA"),
+        ("C", "CENTRAL"),
+        ("Q", "QUÍMICA"),
+        ("F", "FÍSICA"),
+        ("P", "PREFEITURA"),
     )
 
     bandeco = models.CharField(max_length=120, choices=BANDECO_CHOICES)
