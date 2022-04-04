@@ -13,7 +13,7 @@ class Fila(models.Model):
     bandeco = models.CharField(max_length=120, choices=BANDECO_CHOICES)
     situation = models.CharField(max_length=120)
     velocity = models.CharField(max_length=120)
-    last_atualization = models.DateTimeField(auto_now=True, blank=True)
+    last_atualization = models.DateTimeField(auto_now=True)
 
     def _str_(self):
         return self.situation
