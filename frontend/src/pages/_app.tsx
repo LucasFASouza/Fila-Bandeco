@@ -12,7 +12,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="google-site-verification"
           content="41JnQVpbFAf9rGtnptrMLZEEkXDQEiPM7vA4jJgA-Jg"
         />
-        </Head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+      </Head>
       <Component {...pageProps} />
     </AuthProvider>
   );

@@ -50,7 +50,7 @@ const Submit: NextPage = () => {
     bandecoSubmit.bandeco = formValue.bandeco;
 
     if (bandecoSubmit.bandeco == "") {
-      bandecoSubmit.bandeco = "CENTRAL";
+      bandecoSubmit.bandeco = "C";
     }
 
     bandecoSubmit.situation = formValue.situation;
@@ -93,10 +93,10 @@ const Submit: NextPage = () => {
             value={formValue.bandeco}
             className="outline outline-1 outline-gray-300 rounded-sm focus:outline-usp form-control"
           >
-            <option value="CENTRAL">Central</option>
-            <option value="FÍSICA">Física</option>
-            <option value="PREFEITURA">Prefeitura</option>
-            <option value="QUÍMICA">Química</option>
+            <option value="C">Central</option>
+            <option value="F">Física</option>
+            <option value="P">Prefeitura</option>
+            <option value="Q">Química</option>
           </select>
         </div>
 
