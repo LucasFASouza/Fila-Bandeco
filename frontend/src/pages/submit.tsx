@@ -80,6 +80,7 @@ const Submit: NextPage = () => {
       <form
         onSubmit={handleSubmit}
         action="https://bandeco.skyrats.com.br"
+        target='_blank'
         className="flex flex-col drop-shadow m-3 my-16 outline outline-1 outline-neutral-200 rounded-lg md:mx-96"
       >
         <div className="flex flex-col py-2 px-5 text-sm">
@@ -131,7 +132,7 @@ const Submit: NextPage = () => {
           />
         </div>
 
-        <div className="flex flex-row justify-end text-white bg-usp rounded-b-lg my-3 py-3 px-7 items-center">
+        <div className="flex flex-row justify-end text-white bg-usp rounded-b-lg mt-3 py-3 px-7 items-center">
           <button type="submit">Enviar</button>
         </div>
       </form>

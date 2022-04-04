@@ -23,44 +23,42 @@ const Home: NextPage = () => {
   let atualization: Bandeco[] = [];
 
   useEffect(() => {
-    refreshList();
+    const interval = setInterval(() => {
+        axios
+          .all([
+            axios.get(
+              "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=CENTRAL"
+            ),
+            axios.get(
+              "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=FISICA"
+            ),
+            axios.get(
+              "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=PREFEITURA"
+            ),
+            axios.get(
+              "http://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=QUIMICA"
+            ),
+          ])
+          .then(
+            axios.spread(
+              (
+                centralAtualization,
+                fisicaAtualization,
+                prefAtualization,
+                quimicaAtualization
+              ) => {
+                atualization.push(centralAtualization.data.at(-1));
+                atualization.push(fisicaAtualization.data.at(-1));
+                atualization.push(prefAtualization.data.at(-1));
+                atualization.push(quimicaAtualization.data.at(-1));
+
+                setFilas(atualization);
+                console.log(filas);
+              }
+            )
+          );
+    }, 5000);
   }, []);
-
-  const refreshList = () => {
-    axios
-      .all([
-        axios.get(
-          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=CENTRAL"
-        ),
-        axios.get(
-          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=FISICA"
-        ),
-        axios.get(
-          "https://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=PREFEITURA"
-        ),
-        axios.get(
-          "http://fila-bandeco-api.herokuapp.com/api/filas/?bandeco=QUIMICA"
-        ),
-      ])
-      .then(
-        axios.spread(
-          (
-            centralAtualization,
-            fisicaAtualization,
-            prefAtualization,
-            quimicaAtualization
-          ) => {
-            atualization.push(centralAtualization.data.at(-1));
-            atualization.push(fisicaAtualization.data.at(-1));
-            atualization.push(prefAtualization.data.at(-1));
-            atualization.push(quimicaAtualization.data.at(-1));
-
-            setFilas(atualization);
-            console.log(filas);
-          }
-        )
-      );
-  };
 
   return (
     <div>
