@@ -56,6 +56,7 @@ const Home: NextPage = () => {
             atualization.push(quimicaAtualization.data[-1]);
 
             setFilas(atualization);
+            console.log(filas);
           }
         )
       );
