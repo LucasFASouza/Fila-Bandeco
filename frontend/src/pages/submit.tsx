@@ -79,6 +79,7 @@ const Submit: NextPage = () => {
 
       <form
         onSubmit={handleSubmit}
+        action="https://bandeco.skyrats.com.br"
         className="flex flex-col drop-shadow m-3 my-16 outline outline-1 outline-neutral-200 rounded-lg md:mx-96"
       >
         <div className="flex flex-col py-2 px-5 text-sm">
