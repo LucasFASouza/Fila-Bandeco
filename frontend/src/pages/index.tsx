@@ -50,10 +50,10 @@ const Home: NextPage = () => {
             prefAtualization,
             quimicaAtualization
           ) => {
-            atualization.push(centralAtualization.data[0]);
-            atualization.push(fisicaAtualization.data[0]);
-            atualization.push(prefAtualization.data[0]);
-            atualization.push(quimicaAtualization.data[0]);
+            atualization.push(centralAtualization.data.at(-1));
+            atualization.push(fisicaAtualization.data.at(-1));
+            atualization.push(prefAtualization.data.at(-1));
+            atualization.push(quimicaAtualization.data.at(-1));
 
             setFilas(atualization);
             console.log(filas);
