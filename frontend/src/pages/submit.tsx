@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Header from "../components/header";
 import axios from "axios";
 import React from "react";
+import { useRouter } from "next/router";
 
 interface Bandeco {
   bandeco: string;
@@ -16,6 +17,8 @@ let bandecoSubmit: Bandeco = {
 };
 
 const Submit: NextPage = () => {
+  const router = useRouter();
+
   const [formValue, setformValue] = React.useState({
     bandeco: "",
     situation: "",
@@ -71,6 +74,8 @@ const Submit: NextPage = () => {
       )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+
+    router.push("/")
   };
 
   return (
@@ -79,8 +84,6 @@ const Submit: NextPage = () => {
 
       <form
         onSubmit={handleSubmit}
-        action="https://bandeco.skyrats.com.br"
-        target='_blank'
         className="flex flex-col drop-shadow m-3 my-16 outline outline-1 outline-neutral-200 rounded-lg md:mx-96"
       >
         <div className="flex flex-col py-2 px-5 text-sm">
