@@ -1,10 +1,9 @@
 # Fila-Bandeco
 
-Com a volta ao presencial, tivemos a volta dos nossos lindos RU’s e consequentemente das enormes filas.
-Esse site, vai informar o atual estado das filas dos bandecos da cidade universitária.
-Porém, para que tudo funcione da melhor forma possível precisamos de você! Seja um usuário ativo, sempre ajudando com as atualizações do site. 
+Com a volta da USP ao presencial, porém com os restaurantes universitários funcionando a 50% de sua capacidade, temos enfrentado enormes filas.
+Partindo da iniciativa da Skyrats - intelligent MAVs team de organizar grupos de mensagens para que os alunos se avisassem da situação de cada restaurante, decidi iniciar um projeto que pudesse ajudar a comunidade estudantil.
 
-Essa iniciativa foi tomada por alunos da Skyrats e do jornal O Motim com o único intuito de ajudar nossa comunidade. 
+Com menos de uma semana de desenvolvimento, utilizando de tecnologias como Django, React, NextJS e Postgres, montei um site onde os alunos podem verificar e atualizar a situação de cada uma das filas!
 
 [@skyrats_drones](https://www.instagram.com/skyrats_drones/) 
 [@jornalomotim](https://linktr.ee/jornalOMotim)
